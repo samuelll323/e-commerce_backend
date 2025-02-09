@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +39,22 @@ public class OrderServiceImpl implements OrderService {
 
         List<Product> products = productRepository.findAllById(orderDto.getProductIds());
 
-        if (products.size() != orderDto.getProductIds().size()) {
-            throw new RuntimeException("Some product IDs are invalid.");
+        List<Product> finalProducts = new ArrayList<>();
+        for (Long id : orderDto.getProductIds()) {
+            for (Product p : products) {
+                if (p.getId().equals(id)) {
+                    finalProducts.add(p);
+                }
+            }
         }
 
+        BigDecimal totalPrice = finalProducts.stream()
+                .map(Product::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
         Order order = OrderMapper.mapToOrder(orderDto, user, products);
+        order.setTotalPrice(totalPrice);
+
         Order savedOrder = orderRepository.save(order);
 
         for (Product product : products) {
