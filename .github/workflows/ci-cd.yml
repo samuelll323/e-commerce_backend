@@ -12,14 +12,14 @@ jobs:
 
     env:
       AWS_REGION: us-east-2
-        ECR_REPOSITORY: e-commerce-backend
-        ECS_CLUSTER: my-ecs-cluster
-        ECS_SERVICE: my-ecs-service
-        ECS_TASK_DEFINITION: my-task-def.json
-        CONTAINER_NAME: my-container
-        SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
-        SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-        SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+      ECR_REPOSITORY: e-commerce-backend
+      ECS_CLUSTER: my-ecs-cluster
+      ECS_SERVICE: my-ecs-service
+      ECS_TASK_DEFINITION: my-task-def.json
+      CONTAINER_NAME: my-container
+      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
+      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
 
     steps:
       - name: Checkout Repository
