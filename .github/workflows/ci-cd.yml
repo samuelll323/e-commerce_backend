@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-       AWS_REGION: us-east-2
+      AWS_REGION: us-east-2
       ECR_REPOSITORY: e-commerce-backend
       ECS_CLUSTER: my-ecs-cluster
       ECS_SERVICE: my-ecs-service
