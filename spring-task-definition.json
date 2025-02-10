@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:390403887727:task-definition/spring-task-definition:1",
+    "family": "spring-task-definition",
     "containerDefinitions": [
         {
             "name": "ecommerce-example",
@@ -35,61 +35,18 @@
             "systemControls": []
         }
     ],
-    "family": "spring-task-definition",
     "taskRoleArn": "arn:aws:iam::390403887727:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::390403887727:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
+    "requiresCompatibilities": ["FARGATE"],
     "cpu": "1024",
     "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-02-10T04:52:51.964Z",
-    "registeredBy": "arn:aws:iam::390403887727:root",
-    "enableFaultInjection": false,
+    "placementConstraints": [],
+    "compatibilities": ["EC2", "FARGATE"],
+    "volumes": [],
     "tags": []
 }
