@@ -57,7 +57,7 @@ jobs:
         with:
           task-definition: spring-task-definition.json  # `task-def.json`
           container-name: ecommerce-example   # ECS task defi container name
-          image: ${{ steps.build-image.outputs.image }}
+          image: ${{ env.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
